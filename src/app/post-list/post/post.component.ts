@@ -11,4 +11,12 @@ export class PostComponent implements OnInit {
     constructor() {}
 
     ngOnInit() {}
+
+    onLike() {
+        this.post.love();
+    }
+
+    onDislike() {
+        this.post.hate();
+    }
 }

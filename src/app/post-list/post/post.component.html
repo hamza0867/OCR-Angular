@@ -1,6 +1,17 @@
-<li class="list-group-item">
-    <span>{{ post.created_at | date }}</span>
-    <h1>{{ post.title }}</h1>
+<li
+    class="list-group-item"
+    [ngClass]="{
+        'list-group-item-success': post.loveIts > 0,
+        'list-group-item-danger': post.loveIts < 0
+    }"
+>
+    <div class="row">
+        <h2 class="col-lg-8">{{ post.title }}</h2>
+        <span id="created_at" class="offset-lg-2 col-lg-2">{{
+            post.created_at | date: "short"
+        }}</span>
+    </div>
     <p>{{ post.content }}</p>
-    <button>Love it</button> <button>Don't love it</button>
+    <button class="btn btn-success" (click)="onLike()">Love it</button>
+    <button class="btn btn-danger" (click)="onDislike()">Don't love it</button>
 </li>
